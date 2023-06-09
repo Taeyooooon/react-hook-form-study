@@ -1,28 +1,42 @@
 'use client';
 
-import Edit from '@/components/Edit';
+import Form from '@/components/Form';
 import View from '@/components/View';
 import { useForm } from 'react-hook-form';
 
 export type Data = {
-  arrayDataOne: {
-    name: string;
-    skills: { name: string }[];
+  firstArray: {
+    first: string;
+    secondArray: {
+      second: string;
+      thirdArray: {
+        third: string;
+      }[];
+    }[];
   }[];
 };
 
 export const INIT_DATA: Data = {
-  arrayDataOne: [
+  firstArray: [
     {
-      name: '',
-      skills: [{ name: '' }],
+      first: '',
+      secondArray: [
+        {
+          second: '',
+          thirdArray: [
+            {
+              third: '',
+            },
+          ],
+        },
+      ],
     },
   ],
 };
 
 export default function Home() {
-  const { handleSubmit, control, watch, reset } = useForm({
-    mode: 'onBlur',
+  const { handleSubmit, control, watch, resetField } = useForm({
+    mode: 'onSubmit',
     defaultValues: { ...INIT_DATA },
   });
 
@@ -32,8 +46,12 @@ export default function Home() {
 
   return (
     <>
-      <View formData={formData} />
-      <Edit handleSubmit={handleSubmit} control={control} reset={reset} />
+      <Form
+        handleSubmit={handleSubmit}
+        control={control}
+        resetField={resetField}
+      />
+      {/* <View formData={formData} /> */}
     </>
   );
 }
