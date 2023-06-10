@@ -1,9 +1,6 @@
 'use client';
 
-import { Control, useFieldArray } from 'react-hook-form';
-import MuiTextField from './MuiTextField';
-import Array from '@/components/FirstArray';
-import { INIT_DATA } from '@/app/page';
+import { Control } from 'react-hook-form';
 import dynamic from 'next/dynamic';
 import FirstArrayForm from '@/components/FirstArrayForm';
 

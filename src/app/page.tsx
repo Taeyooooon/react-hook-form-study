@@ -51,7 +51,7 @@ export default function Home() {
         control={control}
         resetField={resetField}
       />
-      {/* <View formData={formData} /> */}
+      <View formData={formData} />
     </>
   );
 }
