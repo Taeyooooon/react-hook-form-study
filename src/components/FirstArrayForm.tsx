@@ -12,6 +12,23 @@ const FirstArrayForm = ({ control, resetField }: Props) => {
     control,
     name: 'firstArray',
   });
+
+  const onAppend = () => {
+    append({
+      first: '',
+      secondArray: [
+        {
+          second: '',
+          thirdArray: [
+            {
+              third: '',
+            },
+          ],
+        },
+      ],
+    });
+  };
+
   return (
     <>
       <ul className=' m-4 p-4 border-2 border-red-400'>
@@ -26,26 +43,7 @@ const FirstArrayForm = ({ control, resetField }: Props) => {
             </li>
           );
         })}
-        <button
-          // TODO: append할때 skill 초기값 수정
-          type='button'
-          onClick={() =>
-            append({
-              first: '',
-              secondArray: [
-                {
-                  second: '',
-                  thirdArray: [
-                    {
-                      third: '',
-                    },
-                  ],
-                },
-              ],
-            })
-          }
-          className=' bg-red-400'
-        >
+        <button type='button' onClick={onAppend} className=' bg-red-400'>
           Append FirstArray
         </button>
       </ul>

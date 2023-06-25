@@ -19,15 +19,13 @@ const MuiTextField = <T extends FieldValues>({
   });
 
   return (
-    <>
-      <TextField
-        variant='outlined'
-        value={value || ''}
-        onChange={onChange}
-        error={!!error}
-        helperText={!!error && error.message}
-      />
-    </>
+    <TextField
+      variant='outlined'
+      value={value}
+      onChange={onChange}
+      error={!!error}
+      helperText={!!error && error.message}
+    />
   );
 };
 export default MuiTextField;

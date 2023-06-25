@@ -19,6 +19,17 @@ const FirstArray = ({ control, firstIndex, resetField }: Props) => {
     name: `firstArray.${firstIndex}.secondArray`,
   });
 
+  const onAppend = () => {
+    append({
+      second: '',
+      thirdArray: [
+        {
+          third: '',
+        },
+      ],
+    });
+  };
+
   return (
     <>
       <p className=' font-bold text-xl mb-4'>First Array</p>
@@ -47,20 +58,7 @@ const FirstArray = ({ control, firstIndex, resetField }: Props) => {
             </li>
           );
         })}
-        <button
-          type='button'
-          onClick={() => {
-            append({
-              second: '',
-              thirdArray: [
-                {
-                  third: '',
-                },
-              ],
-            });
-          }}
-          className=' bg-yellow-500'
-        >
+        <button type='button' onClick={onAppend} className=' bg-yellow-500'>
           Append Second Array
         </button>
       </ul>

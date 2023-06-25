@@ -18,13 +18,17 @@ const SecondArray = ({
   remove,
   arr,
 }: Props) => {
-  const { fields: thirdFields, append } = useFieldArray({
+  const {
+    fields: thirdFields,
+    append,
+    remove: removeThird,
+  } = useFieldArray({
     control,
     name: `firstArray.${firstIndex}.secondArray.${secondIndex}.thirdArray`,
   });
 
   const onRemove = () => {
-    if (arr.length === 1) return alert('Need at least one input form');
+    if (arr.length < 2) return alert('Need at least one input form');
     remove(secondIndex);
   };
 
@@ -44,7 +48,7 @@ const SecondArray = ({
         type='button'
         className=' bg-red-600 text-white'
       >
-        Remove
+        Remove123
       </button>
 
       <ul className=' m-4 p-4 border-2 border-blue-500'>
@@ -54,6 +58,7 @@ const SecondArray = ({
             <li key={field.id}>
               <ThirdArray
                 arr={arr}
+                removeThird={removeThird}
                 control={control}
                 firstIndex={firstIndex}
                 secondIndex={secondIndex}
