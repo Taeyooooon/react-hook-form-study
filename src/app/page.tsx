@@ -2,7 +2,7 @@
 
 import Form from '@/components/Form';
 import View from '@/components/View';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 
 export type Data = {
   firstArray: {
@@ -35,14 +35,11 @@ export const INIT_DATA: Data = {
 };
 
 export default function Home() {
+  console.log('HOME render');
   const { handleSubmit, control, watch, resetField } = useForm({
     mode: 'onSubmit',
     defaultValues: { ...INIT_DATA },
   });
-
-  const formData = watch();
-
-  console.log('formData : ', formData);
 
   return (
     <>
@@ -51,7 +48,7 @@ export default function Home() {
         control={control}
         resetField={resetField}
       />
-      <View formData={formData} />
+      <View control={control} />
     </>
   );
 }

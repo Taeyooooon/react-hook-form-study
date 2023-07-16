@@ -21,6 +21,8 @@ const Form = ({ handleSubmit, control, resetField }: Props) => {
     console.log('SUBMIT DATA', data);
   };
 
+  console.log('FORM render');
+
   return (
     <>
       <h1 className=' font-bold text-2xl'>React Hook Form Nested Array</h1>
@@ -29,12 +31,13 @@ const Form = ({ handleSubmit, control, resetField }: Props) => {
         className=' max-w-xl m-4 p-4 border-4 border-black'
       >
         <FirstArrayForm control={control} resetField={resetField} />
-      </form>
-      <button type='submit' className=' bg-blue-300'>
-        Submit
-      </button>
 
-      <DevTool control={control} />
+        <button type='submit' className=' bg-blue-300'>
+          Submit
+        </button>
+      </form>
+
+      <DevTool control={control}  />
     </>
   );
 };
